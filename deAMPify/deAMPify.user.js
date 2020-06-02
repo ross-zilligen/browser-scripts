@@ -2,17 +2,26 @@
 // @name			deAMPify
 // @namespace		deAMPify
 // @version			2020.06.02.1422
-// @description		I really hate AMP (Accelerated Mobile Pages) for a variety of reasons including the long,
-//					obfuscated links and the inability to use dynamic page elements. This script is designed
-//					to detect an AMP-link, then determine and load the non-AMP version of the page instead.
-//					I use it on my phone by loading links from Google News into the Kiwi browser to deAMPify
-//					them before sharing.
 // @author			[Ross Zilligen](https://github.com/ross-zilligen)
 // @include			http://*ampshare=*
 // @include			https://*ampshare=*
 // @include			https://*.ampproject.org/*
 // @run-at			document-start
 // @grant			none
+// @description		I really hate AMP (Accelerated Mobile Pages) for a variety of reasons including the long,
+//					obfuscated links and the inability to use dynamic page elements. This script is designed
+//					to detect an AMP-link, then determine and load the non-AMP version of the page instead.
+//					I use it on my phone by loading links from Google News into the Kiwi browser to deAMPify
+//					them before sharing.
+//
+//					To use this on an Android Phone, you will need:
+//
+//					1) Kiwi Browser, which is Chrome-based *AND* allows you to use add-ons:
+//						https://play.google.com/store/apps/details?id=com.kiwibrowser.browser
+//
+//					2) Tampermonkey Extension from the Chrome web store:
+//						https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+//
 // ==/UserScript==
 /*
 
