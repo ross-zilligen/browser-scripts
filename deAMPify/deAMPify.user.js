@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name			deAMPify
 // @namespace		deAMPify
-// @version			2020.06.02.1422
+// @version			2020.06.02.1439
 // @author			[Ross Zilligen](https://github.com/ross-zilligen)
 // @include			http://*ampshare=*
 // @include			https://*ampshare=*
@@ -39,10 +39,21 @@ https://www-zdnet-com.cdn.ampproject.org/v/s/www.zdnet.com/
 */
 
 var ampAddr = String(window.location);
+// handle reddit any other sites with amp sub-domain
+if (/^amp\..*/gi.test(String(location.hostname))) {
+	window.location = ampAddr.replace(/^(https?:\/\/.*)amp\.(.*)/gi, '$1www.$2')
+    return;
+}
+// check for ampshare parameter, and return if not present
 if (! /.*ampshare.*/gi.test(ampAddr)) {
     return;
 }
+// extract the non-amp address from the ampshare parameter
 var cleanAddr = ampAddr.replace(/^.*[?&]ampshare=([^&]+).*$/g, '$1');
+
+// decode any encoded characters in tyhe ampshare parameter to get back to the original url
 cleanAddr = decodeURI(cleanAddr);
 cleanAddr = decodeURIComponent(cleanAddr);
+
+// load the non-amp page instead
 window.location = cleanAddr;
